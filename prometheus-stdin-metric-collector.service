@@ -1,0 +1,14 @@
+[Unit] 
+Description=Prometheus stdin metric collector
+
+[Service] 
+Type=simple
+
+Restart=on-failure
+RestartSec=5s
+
+ExecStart=%ENTER YOUR COMMAND/SCRIPT HERE%
+ExecStop=/bin/kill -2 $MAINPID
+
+[Install]
+WantedBy=multi-user.target
