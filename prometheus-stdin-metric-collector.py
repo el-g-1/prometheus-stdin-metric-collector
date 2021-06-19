@@ -43,6 +43,7 @@ if __name__ == '__main__':
     start_http_server(8000)
     # Read metrics from stdin
     for line in sys.stdin:
-        if line.startswith('ts:'):
-            parts = line.split()
+        idx = line.find('ts')
+        if idx >= 0:
+            parts = line[idx:].split()
             collector.update_metrics(parts[0], parts[1:])
